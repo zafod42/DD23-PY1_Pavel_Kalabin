@@ -9,7 +9,7 @@ while True:
     spend_salary_diff = spend - salary  # ежемесячная убыль средств из капитала
     money_capital -= spend_salary_diff
     if money_capital < 0:               # постусловие - если не выполняется, то считаем месяц
-        break;                          # иначе - заканчиваем цикл
+        break                           # иначе - заканчиваем цикл
     
     spend *= increase_ratio             # каждый месяц цены увеличиваются в increase_ratio раз
     dept_free_days += 1

@@ -1,24 +1,26 @@
-# TODO  Напишите функцию count_letters
-import math
-
 
 def count_letters(text):
     text = text.lower()
     alph_dict = {}
     for char in text:
-        if char.isalpha() and char not in alph_dict:
-            alph_dict[char] = 1     # Если буква не в алфавите, то добавляем её в алфавит
-        elif char.isalpha():
-            alph_dict[char] += 1    # Увеличиваем количество вхождений буквы в алфавит
+        if not char.isalpha():  # Если символ не является буквой - пропускаем итерацию
+            continue
+
+        if char in alph_dict:
+            alph_dict[char] += 1  # Увеличиваем количество вхождений буквы в алфавит
+        else:
+            alph_dict[char] = 1  # Если буква не в алфавите, то добавляем её в алфавит
+
     return alph_dict
 
+
 # TODO Напишите функцию calculate_frequency
-def calculate_frequency(letters_count):
+def calculate_frequency(count):
     frequency_dict = {}
-    counts = letters_count.values()
+    counts = count.values()
     whole_count = sum(counts)
-    for letter in letters_count:
-        frequency_dict[letter] = round(letters_count[letter]/whole_count, 2)
+    for char in count:
+        frequency_dict[char] = round(count[char] / whole_count, 2)
     return frequency_dict
 
 
